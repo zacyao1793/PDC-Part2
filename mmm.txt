@@ -1,0 +1,5 @@
+Mortal
+Strength: 13
+Agility: 14
+Intelligence: 17
+Faith: 11
