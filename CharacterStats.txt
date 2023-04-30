@@ -1,6 +1,6 @@
 Race: Mortal
 Career: null
-Strength: 8
-Dexterity: 3
-Intelligence: 1
-Faith: 3
+Strength: 13
+Dexterity: 14
+Intelligence: 17
+Faith: 11
