@@ -17,7 +17,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class CharacterCreationGUI {
+public class CharacterGUI {
     private JFrame frame;
     private JComboBox<String> raceComboBox;
     private JComboBox<String> careerComboBox;
@@ -25,7 +25,7 @@ public class CharacterCreationGUI {
     private JButton printToFileButton;
     private JTextArea resultTextArea;
 
-    public CharacterCreationGUI() {
+    public CharacterGUI() {
         frame = new JFrame("Elder Ring 2");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 400);
@@ -114,7 +114,7 @@ public class CharacterCreationGUI {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new CharacterCreationGUI();
+                new CharacterGUI();
             }
         });
     }
