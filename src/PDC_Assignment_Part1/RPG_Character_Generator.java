@@ -244,7 +244,9 @@ public class RPG_Character_Generator {
         String saveChoice = scanner.nextLine().toLowerCase();
 //If user input y
         if (saveChoice.equals("y")) {
-
+            Database db= new Database();
+            db.saveCharacter(character);
+            
             System.out.println("Enter the filename to save:");
 //Create file name based on user input
             String filename = scanner.nextLine();

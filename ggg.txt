@@ -1,0 +1,5 @@
+Deepkin
+Strength: 15
+Dexterity: 6
+Intelligence: 11
+Faith: 15
