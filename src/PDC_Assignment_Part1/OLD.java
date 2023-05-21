@@ -11,7 +11,7 @@ package PDC_Assignment_Part1;
  */
 import java.util.Scanner;
 
-public class Main {
+public class OLD {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         RPG_Character_Generator RPG_Character_GeneratorMenu = new RPG_Character_Generator(scanner);
