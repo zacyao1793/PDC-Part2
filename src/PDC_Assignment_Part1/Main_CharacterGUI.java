@@ -26,7 +26,7 @@ public class Main_CharacterGUI {
     private CharacterAttributes character;
     private String url = "jdbc:derby://localhost:1527/characterDB;user=pdc;password=pdc";
     private JTextArea storyTextArea;
-    
+    private Database db = new Database ();
     
     public Main_CharacterGUI() {
         frame = new JFrame("Elder Ring 2");
@@ -132,6 +132,7 @@ public class Main_CharacterGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String career = (String) careerComboBox.getSelectedItem();
+                
                 character.applyCareerModifiers(career);
                 resultTextArea.setText("Race: " + character.getRace() + "\n" +
                         "Career: " + career + "\n" +
@@ -219,7 +220,7 @@ public class Main_CharacterGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 saveCharacterToFile(character);
-                saveCharacterToDatabase(character);
+                //saveCharacterToDatabase(character);
             }
         });
 
@@ -249,34 +250,11 @@ public class Main_CharacterGUI {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(frame, "Error saving character attributes to file.", "Error", JOptionPane.ERROR_MESSAGE);
         }
+        
+        
+        db.saveCharacter(character);
     }
 
-    
-    
-    private void saveCharacterToDatabase(CharacterAttributes character) {
-        try {
-            Connection conn = DriverManager.getConnection(url);
-            String sql = "INSERT INTO CHARACTERS(race, career, strength, dexterity, intelligence, faith) VALUES(?, ?, ?, ?, ?, ?)";
-
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, character.getRace());
-            pstmt.setString(2, character.getCareer());
-            pstmt.setInt(3, character.getStrength());
-            pstmt.setInt(4, character.getDexterity());
-            pstmt.setInt(5, character.getIntelligence());
-            pstmt.setInt(6, character.getFaith());
-
-            pstmt.executeUpdate();
-            JOptionPane.showMessageDialog(frame, "Character attributes have been saved to database.", "Database Updated", JOptionPane.INFORMATION_MESSAGE);
-
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(frame, "Error saving character attributes to database.", "Database Error", JOptionPane.ERROR_MESSAGE);
-          
-        }
-    }
-
-    
-    
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override

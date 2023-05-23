@@ -20,19 +20,20 @@ public class Database {
     private final String password = "pdc";
 
     public void saveCharacter(CharacterAttributes character) {
-        String sql = "INSERT INTO characters(race, strength, dexterity, intelligence, faith) VALUES(?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO characters(race, career, strength, dexterity, intelligence, faith) VALUES(?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, character.getRace());
-            pstmt.setInt(2, character.getStrength());
-            pstmt.setInt(3, character.getDexterity());
-            pstmt.setInt(4, character.getIntelligence());
-            pstmt.setInt(5, character.getFaith());
+            pstmt.setString(2, character.getCareer());
+            pstmt.setInt(3, character.getStrength());
+            pstmt.setInt(4, character.getDexterity());
+            pstmt.setInt(5, character.getIntelligence());
+            pstmt.setInt(6, character.getFaith());
 
             pstmt.executeUpdate();
-            System.out.println("Character saved to database!");
+            System.out.println("Character Saved ");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());

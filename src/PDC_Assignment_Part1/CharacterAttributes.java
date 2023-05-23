@@ -31,9 +31,7 @@ public abstract class CharacterAttributes {
     public String getCareer() {
         return career;
     }
-    public void setCareer(String career) {
-        this.career = career;
-    }
+    
     public int getStrength() {
         return strength;
     }
@@ -137,7 +135,14 @@ public abstract class CharacterAttributes {
             intelligence += 7;
             faith += 3;
             break;
+            
+            
     }
+    //So the career field in database is valid
+    this.career=career;
 }
 
+    
+    
+    
 }
