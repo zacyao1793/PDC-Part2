@@ -1,6 +1,6 @@
-Race: Deepkin
-Career: Pagan
-Strength: 15
-Dexterity: 6
-Intelligence: 11
-Faith: 15
+Race: Mortal
+Career: Spellblade
+Strength: 13
+Dexterity: 14
+Intelligence: 17
+Faith: 11

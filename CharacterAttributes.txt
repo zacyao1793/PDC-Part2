@@ -1,5 +1,0 @@
-Race: Mortal
-Strength: 3
-Dexterity: 7
-Intelligence: 3
-Faith: 1
